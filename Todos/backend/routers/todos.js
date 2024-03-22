@@ -90,27 +90,27 @@ router.put('/completed', async(req, res) =>{
         console.log("edittodos: error: ",error);
     }
 })
-router.put('/updateTodo', async(req, res) =>{
-    try{
-        const updatePayload  = req.body;
-        const parsePayload  = updateTodo.safeParse(updatePayload);
-        if(!parsePayload.success){
-            res.status(411).json({
-             msg:"Not able to access Id",
-            })
-         }
-        const todo = await todosModel.findByIdAndUpdate(updatePayload.id, {
-            title: updatePayload.title ,
-            description: updatePayload.description,     
-        });
-        res.status(200).json({
-            success: true,
-            message: "Todo Edited"
-        })
-    }catch(error){
-        console.log("edittodos: error: ",error);
-    }
-})
+// router.put('/updateTodo', async(req, res) =>{
+//     try{
+//         const updatePayload  = req.body;
+//         const parsePayload  = updateTodo.safeParse(updatePayload);
+//         if(!parsePayload.success){
+//             res.status(411).json({
+//              msg:"Not able to access Id",
+//             })
+//          }
+//         const todo = await todosModel.findByIdAndUpdate(updatePayload.id, {
+//             title: updatePayload.title ,
+//             description: updatePayload.description,     
+//         });
+//         res.status(200).json({
+//             success: true,
+//             message: "Todo Edited"
+//         })
+//     }catch(error){
+//         console.log("edittodos: error: ",error);
+//     }
+// })
 
 
 export default router; 
